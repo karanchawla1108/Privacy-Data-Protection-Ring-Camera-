@@ -1,0 +1,283 @@
+{
+  "camera_name": "Ring Front Door",
+  "export_date": "2026-05-01T17:12:00.140539",
+  "cloud_storage_enabled": true,
+  "motion_events": [
+    {
+      "timestamp": "2026-04-24T08:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-24T17:30:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-25T09:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-25T18:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-26T08:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-26T18:30:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-27T09:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-27T13:48:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "delivery_person",
+      "duration_seconds": 45,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-27T19:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-28T08:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-28T18:30:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-29T08:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-29T18:00:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-30T08:30:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-30T15:44:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "delivery_person",
+      "duration_seconds": 45,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    },
+    {
+      "timestamp": "2026-04-30T17:30:00.126126",
+      "camera_id": "Ring Front Door",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": true,
+      "cloud_uploaded": true
+    }
+  ],
+  "metadata_log": [
+    {
+      "timestamp": "2026-04-24T08:00:00.126126",
+      "day_of_week": "Friday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-24T17:30:00.126126",
+      "day_of_week": "Friday",
+      "time_of_day": "afternoon",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-25T09:00:00.126126",
+      "day_of_week": "Saturday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-25T18:00:00.126126",
+      "day_of_week": "Saturday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-26T08:00:00.126126",
+      "day_of_week": "Sunday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-26T18:30:00.126126",
+      "day_of_week": "Sunday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-27T09:00:00.126126",
+      "day_of_week": "Monday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-27T13:48:00.126126",
+      "day_of_week": "Monday",
+      "time_of_day": "afternoon",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-27T19:00:00.126126",
+      "day_of_week": "Monday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-28T08:00:00.126126",
+      "day_of_week": "Tuesday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-28T18:30:00.126126",
+      "day_of_week": "Tuesday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-29T08:00:00.126126",
+      "day_of_week": "Wednesday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-29T18:00:00.126126",
+      "day_of_week": "Wednesday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-30T08:30:00.126126",
+      "day_of_week": "Thursday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-30T15:44:00.126126",
+      "day_of_week": "Thursday",
+      "time_of_day": "afternoon",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-04-30T17:30:00.126126",
+      "day_of_week": "Thursday",
+      "time_of_day": "afternoon",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    }
+  ],
+  "total_events": 16,
+  "privacy_implications": "This data reveals your daily patterns, occupancy, and habits"
+}
