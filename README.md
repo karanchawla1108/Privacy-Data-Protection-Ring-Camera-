@@ -294,8 +294,6 @@ Final Score: 0-100
 
 
 
----
-
 ## Author
 
 **Karan Chawla**  
