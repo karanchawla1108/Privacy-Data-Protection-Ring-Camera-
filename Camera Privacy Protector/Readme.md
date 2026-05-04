@@ -356,25 +356,6 @@ Privacy improvement:                100.0%
 
 ## Technical Implementation
 
-### Data Flow
-
-```
-1. Raw Camera Data (PII present)
-        ↓
-2. Privacy Risk Assessment (100/100 risk)
-        ↓
-3. Apply Anonymization:
-   - Remove PII
-   - Hash network data
-   - Pseudonymize devices
-   - Generalize timestamps
-        ↓
-4. Privacy Risk Assessment (0/100 risk)
-        ↓
-5. Encrypt Anonymized Data
-        ↓
-6. Export for Analysis
-```
 
 ### Key Functions
 
@@ -439,13 +420,5 @@ Potential improvements:
 - ISO/IEC 27701:2019 Privacy Information Management
 - NIST Privacy Framework v1.0
 
-## License
 
-Academic coursework - All rights reserved.
-Not for commercial use without permission.
 
-## Author
-
-Student submission for COM6020M Privacy & Data Protection
-York Business School
-May 2026
