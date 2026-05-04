@@ -70,7 +70,7 @@ Assignment requirement: Demonstrate privacy risk assessment and algorithm transp
 
 ```bash
 # Run the analyzer
-python3 camera_privacy_analyzer.py
+python3 camera_privacy_analyzer_1.py
 
 # Expected runtime: 5-10 seconds
 # Output: Terminal analysis + camera_data_export.json
