@@ -29,7 +29,9 @@ Privacy-Data-Protection-Ring-Camera/
 ├── Camera Privacy Analyzer/
 │   ├── README.md                                # Program 1 documentation
 │   ├── camera_privacy_analyzer__1_.py           # Privacy risk assessment tool
-│   └── camera_data_export.json                  # Example output (privacy violations)
+│   └── camera_data_export_LOCAL                 # Example output for Local Storage
+|   └── camera_data_export_CLOUD                 # Example output for Cloud Storage
+|                      
 │
 └── Camera Privacy Protector/
     ├── README.md                                # Program 2 documentation
