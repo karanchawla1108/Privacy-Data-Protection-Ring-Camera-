@@ -117,7 +117,7 @@ class CameraPrivacyProtector:
             sample_event = self.motion_events[0]
             sample_metadata = self.metadata_log[0]
             
-            print("🔴 PII EXPOSURES IN ORIGINAL DATA:\n")
+            print("PII EXPOSURES IN ORIGINAL DATA:\n")
             
             risk_score = 0
             
@@ -132,7 +132,7 @@ class CameraPrivacyProtector:
             if 'camera_location' in sample_event:
                 print(f"   - Camera location: {sample_event['camera_location']}")
                 risk_score += 20
-            print(f"   ⚠️  CRITICAL: Instant identification possible (+80 risk)\n")
+            print(f"    CRITICAL: Instant identification possible (+80 risk)\n")
             
             # Network identifiers
             print("2. NETWORK IDENTIFIERS:")
@@ -145,13 +145,13 @@ class CameraPrivacyProtector:
             if 'device_serial' in sample_metadata:
                 print(f"   - Device serial: {sample_metadata['device_serial']}")
                 risk_score += 10
-            print(f"   ⚠️  HIGH: Device fingerprinting possible (+30 risk)\n")
+            print(f"    HIGH: Device fingerprinting possible (+30 risk)\n")
             
             # Temporal patterns
             print("3. TEMPORAL PATTERNS:")
             print(f"   - Total events: {len(self.motion_events)}")
             print(f"   - Precise timestamps: YES")
-            print(f"   ⚠️  MEDIUM: Behavioral profiling possible (+10 risk)\n")
+            print(f"     MEDIUM: Behavioral profiling possible (+10 risk)\n")
             
             print(f"{'='*60}")
             print(f"RE-IDENTIFICATION RISK SCORE: {min(100, risk_score)}/100")
@@ -168,7 +168,7 @@ class CameraPrivacyProtector:
             sample_event = self.anonymized_events[0]
             sample_metadata = self.anonymized_metadata[0]
             
-            print("✅ PRIVACY PROTECTIONS IN ANONYMIZED DATA:\n")
+            print(" PRIVACY PROTECTIONS IN ANONYMIZED DATA:\n")
             
             risk_score = 100  # Start high, reduce for remaining risks
             
@@ -177,7 +177,7 @@ class CameraPrivacyProtector:
             print(f"   - User name: REMOVED ✓")
             print(f"   - User email: REMOVED ✓")
             print(f"   - Camera location: REMOVED ✓")
-            print(f"   ✅ Direct identification prevented (-80 risk)\n")
+            print(f"    Direct identification prevented (-80 risk)\n")
             risk_score -= 80
             
             # Check what's hashed
@@ -188,14 +188,14 @@ class CameraPrivacyProtector:
                 print(f"   - IP: {sample_metadata['ip_hash']}... (HASHED) ✓")
             if 'device_pseudonym' in sample_metadata:
                 print(f"   - Device: {sample_metadata['device_pseudonym']} (PSEUDONYMIZED) ✓")
-            print(f"   ✅ Irreversible protection applied (-15 risk)\n")
+            print(f"    Irreversible protection applied (-15 risk)\n")
             risk_score -= 15
             
             # Check temporal generalization
             print("3. TEMPORAL PATTERNS:")
             if 'timestamp_hour' in sample_event:
                 print(f"   - Timestamp: {sample_event['timestamp_hour']} (GENERALIZED) ✓")
-            print(f"   ✅ Exact timing removed (-5 risk)\n")
+            print(f"    Exact timing removed (-5 risk)\n")
             risk_score -= 5
             
             print(f"{'='*60}")
@@ -334,7 +334,7 @@ class CameraPrivacyProtector:
         print(f"  Original size: {len(json_data)} bytes")
         print(f"  Encrypted size: {len(encrypted_hex)} bytes")
         print(f"  Encrypted preview: {encrypted_hex[:60]}...")
-        print(f"\n✅ Data encrypted successfully\n")
+        print(f"\n Data encrypted successfully\n")
         
         return encrypted_hex
     
@@ -372,7 +372,7 @@ class CameraPrivacyProtector:
         print(f"  IP Address:        {original_meta['ip_address']}")
         print(f"  Device Serial:     {original_meta['device_serial']}")
         print(f"  Exact Timestamp:   {original_event['timestamp']}")
-        print(f"\n  ⚠️  Re-identification: POSSIBLE (CRITICAL RISK)\n")
+        print(f"\n    Re-identification: POSSIBLE (CRITICAL RISK)\n")
         
         print(">>> ANONYMIZED DATA (Low Privacy Risk):\n")
         print(f"  User Name:         REMOVED")
@@ -382,7 +382,7 @@ class CameraPrivacyProtector:
         print(f"  IP Address:        {anonymized_meta['ip_hash']}... (hashed)")
         print(f"  Device Serial:     {anonymized_meta['device_pseudonym']} (pseudonymized)")
         print(f"  Exact Timestamp:   {anonymized_event['timestamp_hour']} (generalized)")
-        print(f"\n  ✅ Re-identification: NOT POSSIBLE (LOW RISK)\n")
+        print(f"\n  Re-identification: NOT POSSIBLE (LOW RISK)\n")
         
         print(f"{'='*60}")
         print("PRIVACY IMPROVEMENT ACHIEVED")
@@ -425,7 +425,7 @@ class CameraPrivacyProtector:
         with open(filename, 'w') as f:
             json.dump(export_data, f, indent=2)
         
-        print(f"\n✅ Data exported to: {filename}")
+        print(f"\n Data exported to: {filename}")
         print(f"   Contains: Original + Anonymized data for comparison")
         print(f"   File size: {len(json.dumps(export_data))} bytes\n")
 
@@ -456,7 +456,7 @@ def demonstrate_privacy_protection():
     # Step 6: Verify decryption works
     print("Verifying encryption/decryption...")
     decrypted = protector.decrypt_data(encrypted_data)
-    print(f"✅ Decryption successful - {len(decrypted['anonymized_events'])} events recovered\n")
+    print(f"Decryption successful - {len(decrypted['anonymized_events'])} events recovered\n")
     
     # Step 7: Compare before/after
     protector.compare_before_after()
@@ -479,16 +479,16 @@ def demonstrate_privacy_protection():
 
 if __name__ == "__main__":
     print("""
-╔════════════════════════════════════════════════════════════╗
-║  SMART HOME CAMERA PRIVACY PROTECTION TOOL                 ║
-║  COM6020M: Privacy & Data Protection                       ║
-║                                                             ║
-║  Demonstrates ALL 4 privacy-preserving techniques:         ║
-║  • Data anonymization (PII removal)                        ║
-║  • Privacy risk assessment (re-identification analysis)    ║
-║  • Algorithm transparency (explainable processing)         ║
-║  • Data encryption (secure storage)                        ║
-╚════════════════════════════════════════════════════════════╝
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|  SMART HOME CAMERA PRIVACY PROTECTION TOOL                 |
+| COM6020M: Privacy & Data Protection                       |
+|                                                            |
+|  Demonstrates ALL 4 privacy-preserving techniques:         |
+|  • Data anonymization (PII removal)                        |
+|  • Privacy risk assessment (re-identification analysis)    |
+|  • Algorithm transparency (explainable processing)         |
+|  • Data encryption (secure storage)                        |
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 """)
     
     demonstrate_privacy_protection()
