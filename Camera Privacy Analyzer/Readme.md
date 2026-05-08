@@ -2,263 +2,227 @@
 
 ## Overview
 
-This program simulates smart home camera data collection (like Ring doorbells) and quantifies privacy risks through transparent scoring algorithms. It demonstrates how cloud-based surveillance creates measurable privacy violations compared to local-only storage alternatives.
+Simulates Ring doorbell data collection and quantifies privacy risks through transparent scoring. Compares cloud storage (Ring default) vs local-only storage to demonstrate measurable privacy violations.
 
 ## Purpose
 
-Assignment requirement: Demonstrate privacy risk assessment and algorithm transparency for COM6020M Privacy & Data Protection coursework.
+Demonstrates privacy risk assessment and algorithm transparency for COM6020M Privacy & Data Protection coursework.
 
 ## What It Does
 
-1. Simulates one week of Ring doorbell motion detection events
-2. Generates realistic behavioral patterns (morning departures, evening returns, deliveries)
-3. Calculates privacy scores based on identified risks
-4. Compares cloud storage vs local-only storage configurations
-5. Exports data demonstrating GDPR Article 15 Right of Access
+1. Simulates one week of Ring motion detection (morning departures, evening returns, deliveries)
+2. Calculates privacy scores using transparent algorithm
+3. Compares cloud vs local storage configurations
+4. Exports TWO JSON files for comparison
 
-## Key Features
+## Privacy Scoring Algorithm
 
-### Data Simulation
-- 7 days of realistic motion detection events
-- Morning departure patterns (8-9am)
-- Evening return patterns (5:30-7pm)
-- Delivery events (3-4 per week)
-- Occasional late-night activity
+**Starts at 100 (perfect privacy), deducts points for risks:**
+- Cloud storage enabled: -40 points
+- Predictable daily patterns: -20 points
+- Metadata collection: -15 points
+- Continuous monitoring: -10 points
 
-### Privacy Risk Scoring
-
-**Transparent Algorithm:**
-- Starts at 100 (perfect privacy)
-- Deducts points for each identified risk:
-  - Cloud storage enabled: -40 points
-  - Predictable daily patterns: -20 points
-  - Metadata collection: -15 points
-  - Continuous monitoring: -10 points
-
-**Risk Categories:**
-- 80-100: GOOD - Minimal privacy risk
-- 60-79: MODERATE - Some privacy concerns
-- 40-59: POOR - Significant privacy exposure
-- 20-39: CRITICAL - Severe privacy violations
-- 0-19: SEVERE - Extreme privacy risk
-
-### Scenario Comparison
-
-**Scenario 1: Cloud Storage (Ring Default)**
-- Privacy Score: 15/100
-- Rating: SEVERE
-- Issues: Third-party data access, employee viewing, police partnerships
-
-**Scenario 2: Local Storage Only**
-- Privacy Score: 55/100
-- Rating: POOR (but 267% better than cloud)
-- Improvement: Eliminates third-party access risk
+**Rating Scale:**
+- 80-100: GOOD
+- 60-79: MODERATE
+- 40-59: POOR
+- 20-39: CRITICAL
+- 0-19: SEVERE
 
 ## Requirements
 
-- Python 3.6 or higher
-- No external packages required (uses standard library only)
-
-## Installation
-
-```bash
-# No installation needed - uses Python standard library
-# Just download the script
-```
+- Python 3.6+
+- No external packages (standard library only)
 
 ## Usage
 
 ```bash
-# Run the analyzer
-python3 camera_privacy_analyzer_1.py
+python3 camera_privacy_analyzer.py
 
-# Expected runtime: 5-10 seconds
-# Output: Terminal analysis + camera_data_export.json
+# Runtime: 5-10 seconds
+# Creates 2 JSON files + terminal output
 ```
 
-## Output
+## Output Files
 
-### Terminal Output
+### File 1: camera_data_export_CLOUD.json
 
-Displays:
-- Simulation progress
-- Privacy risk analysis with detailed breakdown
-- Cloud vs Local comparison
-- Mitigation recommendations
-- GDPR compliance notes
+**Scenario:** Ring default (cloud storage ENABLED)
 
-### JSON Export
-
-File: `camera_data_export.json`
-
-Contains:
-- All simulated motion events with timestamps
-- Metadata log (WiFi, IP, device info)
-- Total event count
-- Privacy implications summary
-
-Demonstrates GDPR Article 15 (Right of Access) - shows what data cameras actually collect.
-
-## Privacy Risks Identified
-
-### 1. Daily Routine Exposure
-**Finding:** Morning departures detected 7/7 days at consistent times
-**Risk:** Burglars can predict when home is empty
-**Impact:** -20 points
-
-### 2. Cloud Data Exposure  
-**Finding:** All video clips uploaded to manufacturer servers
-**Risk:** Amazon employees, contractors, police can access footage
-**Impact:** -40 points
-
-### 3. Metadata Privacy Leaks
-**Finding:** WiFi network names, IP addresses, device serials logged
-**Risk:** Device fingerprinting enables tracking across networks
-**Impact:** -15 points
-
-### 4. Occupancy Tracking
-**Finding:** Motion events create complete presence/absence profile
-**Risk:** Third parties know when you're home or away
-**Impact:** -10 points
-
-### 5. Behavioral Profiling
-**Finding:** Delivery patterns reveal shopping habits
-**Risk:** Commercial exploitation of behavioral data
-**Impact:** Included in metadata risk
-
-## GDPR Compliance
-
-### Articles Addressed
-
-**Article 5(1)(c) - Data Minimization**
-- Demonstrates excessive data collection by default cameras
-- Shows metadata alone creates privacy violations
-
-**Article 15 - Right of Access**
-- JSON export provides complete data access
-- Demonstrates what users can request from manufacturers
-
-**Article 32 - Security of Processing**
-- Identifies inadequate access controls (cloud storage)
-- Shows local storage reduces security risks
-
-## Technical Implementation Details
-
-### Data Structures
-
-**Motion Event:**
-```python
+```json
 {
-  "timestamp": "2026-04-24T08:30:00",
-  "camera_id": "Ring Front Door",
-  "object_detected": "person",
-  "duration_seconds": 15,
-  "cloud_uploaded": true
+  "cloud_storage_enabled": true,
+  "motion_events": [
+    {
+      "cloud_uploaded": true,
+      "video_clip_stored": true
+    }
+  ]
 }
 ```
 
-**Metadata:**
+**Privacy Score:** 15/100 (SEVERE)
+
+**Issues:** All data uploaded to Amazon servers, accessible by Ring employees/contractors/police, WiFi/IP exposed, exact timestamps reveal routine.
+
+**File size:** 7.4 KB
+
+---
+
+### File 2: camera_data_export_LOCAL.json
+
+**Scenario:** Local storage ONLY (cloud disabled)
+
+```json
+{
+  "cloud_storage_enabled": false,
+  "motion_events": [
+    {
+      "cloud_uploaded": false,
+      "video_clip_stored": false
+    }
+  ]
+}
+```
+
+**Privacy Score:** 55/100 (POOR but improved)
+
+**Improvements:** No cloud uploads, no third-party access, Ring employees cannot view, police cannot request.
+
+**Remaining risks:** Metadata still collected locally, routine patterns visible if device compromised.
+
+**File size:** 6.6 KB
+
+---
+
+## Comparison
+
+| Feature | Cloud JSON | Local JSON |
+|---------|-----------|------------|
+| **cloud_uploaded** | true | false |
+| **Privacy Score** | 15/100 | 55/100 |
+| **Third-party Access** | Yes | No |
+| **Employee Viewing** | Possible | Not possible |
+| **Privacy Improvement** | Baseline | +267% |
+
+**267% calculation:** (55-15)/15 × 100% = 267%
+
+## Privacy Risks Identified
+
+**1. Cloud Data Exposure** (-40 points)
+- Present in: Cloud JSON only
+- Risk: Third-party access to all footage
+
+**2. Daily Routine Exposure** (-20 points)
+- Present in: Both files
+- Risk: Predictable patterns (7/7 days identical)
+
+**3. Metadata Leaks** (-15 points)
+- Present in: Both files
+- Risk: WiFi/IP enable device tracking
+
+**4. Continuous Monitoring** (-10 points)
+- Present in: Both files
+- Risk: Always-on surveillance
+
+## GDPR Compliance
+
+**Article 5(1)(c) - Data Minimization**
+- Cloud JSON shows excessive collection
+- Local JSON shows improved minimization
+
+**Article 15 - Right of Access**
+- Both files demonstrate data export
+- Shows 7KB+ weekly accumulation
+
+**Article 32 - Security**
+- Cloud JSON shows inadequate controls
+- Local JSON improves security through isolation
+
+## What the Files Prove
+
+**Cloud JSON proves:**
+- Ring uploads all motion events by default
+- Third-party access enabled
+- Privacy score: 15/100
+
+**Local JSON proves:**
+- Same functionality without cloud uploads
+- Privacy improves to 55/100 (267% better)
+- Alternative exists
+
+**Together:**
+- Ring's default maximizes data collection
+- Single architectural change significantly improves privacy
+- GDPR data minimization principles violated by default
+
+## Example Terminal Output
+
+```
+>>> SCENARIO 1: Cloud Storage ENABLED (Ring Default)
+Cloud Storage: ENABLED
+Total events: 16
+
+OVERALL PRIVACY SCORE: 15/100
+Rating: SEVERE
+
+>>> SCENARIO 2: Local Storage ONLY
+Cloud Storage: LOCAL ONLY
+Total events: 16
+
+OVERALL PRIVACY SCORE: 55/100
+Rating: POOR (267% improvement)
+
+Data exported to: camera_data_export_CLOUD.json
+Data exported to: camera_data_export_LOCAL.json
+```
+
+## Key Data Structures
+
+**Cloud Event:**
 ```python
 {
   "timestamp": "2026-04-24T08:30:00",
-  "day_of_week": "Friday",
+  "cloud_uploaded": true,
   "wifi_network": "HomeNetwork_2.4GHz",
   "ip_address": "192.168.1.100"
 }
 ```
 
-### Algorithm Transparency
-
-The scoring algorithm is fully explainable:
-
-1. Initialize score at 100 (perfect privacy)
-2. For each privacy risk detected, subtract defined points
-3. Apply maximum floor of 0 (cannot go negative)
-4. Map final score to privacy rating category
-
-All deductions are logged and explained in output.
-
-## Example Output
-
+**Local Event:**
+```python
+{
+  "timestamp": "2026-04-24T08:30:00",
+  "cloud_uploaded": false,
+  "wifi_network": "HomeNetwork_2.4GHz",
+  "ip_address": "192.168.1.100"
+}
 ```
-============================================================
-PRIVACY RISK ASSESSMENT
-============================================================
-
-1. DAILY ROUTINE EXPOSED:
-   - Typical departure time: ~08:34
-   - Regularity: 7/7 days
-   - Risk: Burglar knows when home is empty
-
-2. CLOUD DATA EXPOSURE:
-   - Video clips uploaded: 18
-   - Accessible by: Camera company, employees, contractors
-   - Risk: No control over who views your footage
-
-3. METADATA PRIVACY LEAKS:
-   - WiFi network name exposed: YES
-   - Daily activity timestamps: 18 records
-   - Risk: Detailed behavioral profile created
-
-============================================================
-OVERALL PRIVACY SCORE: 15/100
-Rating: CRITICAL - Severe privacy violations
-============================================================
-```
-
-## Use Cases
-
-### For Students
-- Demonstrates privacy risk quantification
-- Shows algorithm transparency principles
-- Provides evidence for privacy analysis reports
-- Illustrates GDPR compliance mechanisms
-
-### For Researchers
-- Baseline privacy scoring methodology
-- Comparison framework for surveillance systems
-- Data minimization principles demonstration
-
-### For Privacy Advocates
-- Quantifies Ring doorbell privacy violations
-- Provides evidence for policy recommendations
-- Demonstrates technical privacy solutions
 
 ## Limitations
 
-- Simulated data (not connected to real cameras)
-- Simplified scoring model (real-world may have more factors)
-- Does not analyze actual video content (focuses on metadata)
-- Single-camera simulation (does not model camera networks)
+- Simulated data (not real cameras)
+- Simplified scoring (real-world has more factors)
+- Metadata collected in both scenarios (only upload differs)
+- Single camera (not network simulation)
 
-## Future Enhancements
+## Quick Start
 
-Potential improvements:
-- Multi-camera network simulation
-- Integration with actual camera APIs
-- Machine learning pattern detection
-- Extended GDPR compliance reporting
-- Privacy nutrition label generation
+```bash
+# Run
+python3 camera_privacy_analyzer.py
 
-## References
+# View outputs
+cat camera_data_export_CLOUD.json
+cat camera_data_export_LOCAL.json
+```
 
-**Privacy Frameworks:**
-- GDPR Regulation (EU) 2016/679
-- ICO Domestic CCTV Guidance
-- NIST Privacy Framework
+kranchawla1108/Privacy-Data-Protection-Ring-Camera-/blob/main/Camera%20Privacy%20Analyzer/camera_data_export_LOCAL.json
 
-**Case Studies:**
-- Ring employee access scandal (2019)
-- Ring-police partnerships (2018-present)
-- Wyze data breach (2019)
+---
 
-## License
-
-Academic coursework - All rights reserved.
-Not for commercial use without permission.
-
-## Author
-
-Student submission for COM6020M Privacy & Data Protection
-York Business School
-May 2026
+**Assignment:** COM6020M Privacy & Data Protection  
+**Student:** Karan Chawla  
+**Institution:** St John York University
+**Date:** May 2026
