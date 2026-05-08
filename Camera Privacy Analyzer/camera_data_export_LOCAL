@@ -1,0 +1,317 @@
+{
+  "camera_name": "Local Camera",
+  "export_date": "2026-05-08T17:33:26.304220",
+  "cloud_storage_enabled": false,
+  "motion_events": [
+    {
+      "timestamp": "2026-05-01T08:30:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-01T18:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-02T08:30:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-02T17:30:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-03T08:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-03T18:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-03T22:18:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 8,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-04T08:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-04T10:43:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "delivery_person",
+      "duration_seconds": 45,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-04T19:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-05T08:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-05T10:18:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "delivery_person",
+      "duration_seconds": 45,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-05T19:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-06T08:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-06T18:30:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-06T22:49:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 8,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-07T08:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 15,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    },
+    {
+      "timestamp": "2026-05-07T18:00:26.299934",
+      "camera_id": "Local Camera",
+      "object_detected": "person",
+      "duration_seconds": 20,
+      "snapshot_captured": true,
+      "video_clip_stored": false,
+      "cloud_uploaded": false
+    }
+  ],
+  "metadata_log": [
+    {
+      "timestamp": "2026-05-01T08:30:26.299934",
+      "day_of_week": "Friday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-01T18:00:26.299934",
+      "day_of_week": "Friday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-02T08:30:26.299934",
+      "day_of_week": "Saturday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-02T17:30:26.299934",
+      "day_of_week": "Saturday",
+      "time_of_day": "afternoon",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-03T08:00:26.299934",
+      "day_of_week": "Sunday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-03T18:00:26.299934",
+      "day_of_week": "Sunday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-03T22:18:26.299934",
+      "day_of_week": "Sunday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-04T08:00:26.299934",
+      "day_of_week": "Monday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-04T10:43:26.299934",
+      "day_of_week": "Monday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-04T19:00:26.299934",
+      "day_of_week": "Monday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-05T08:00:26.299934",
+      "day_of_week": "Tuesday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-05T10:18:26.299934",
+      "day_of_week": "Tuesday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-05T19:00:26.299934",
+      "day_of_week": "Tuesday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-06T08:00:26.299934",
+      "day_of_week": "Wednesday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-06T18:30:26.299934",
+      "day_of_week": "Wednesday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-06T22:49:26.299934",
+      "day_of_week": "Wednesday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-07T08:00:26.299934",
+      "day_of_week": "Thursday",
+      "time_of_day": "morning",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    },
+    {
+      "timestamp": "2026-05-07T18:00:26.299934",
+      "day_of_week": "Thursday",
+      "time_of_day": "evening",
+      "device_online": true,
+      "wifi_network": "HomeNetwork_2.4GHz",
+      "ip_address": "192.168.1.100"
+    }
+  ],
+  "total_events": 18,
+  "privacy_implications": "This data reveals your daily patterns, occupancy, and habits"
+}
