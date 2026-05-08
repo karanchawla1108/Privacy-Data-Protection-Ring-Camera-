@@ -6,6 +6,7 @@ For: COM6020M Privacy & Data Protection Assignment
 """
 
 import json
+
 from datetime import datetime, timedelta
 import random
 from collections import defaultdict
@@ -97,7 +98,7 @@ class SmartCameraSimulator:
         # Pattern analysis
         patterns = self._detect_patterns()
         
-        print("🔴 CRITICAL PRIVACY EXPOSURES IDENTIFIED:\n")
+        print(" CRITICAL PRIVACY EXPOSURES IDENTIFIED:\n")
         
         # 1. Daily routine patterns
         if patterns['morning_departures']:
@@ -105,19 +106,19 @@ class SmartCameraSimulator:
             print(f"1. DAILY ROUTINE EXPOSED:")
             print(f"   - Typical departure time: ~{int(avg_departure):02d}:{int((avg_departure%1)*60):02d}")
             print(f"   - Regularity: {len(patterns['morning_departures'])}/7 days")
-            print(f"   ⚠️  RISK: Burglar knows when home is empty\n")
+            print(f"    RISK: Burglar knows when home is empty\n")
         
         # 2. Occupancy detection
         print(f"2. HOME OCCUPANCY TRACKING:")
         print(f"   - Total motion events: {len(self.motion_events)}")
         print(f"   - Days with activity: {patterns['active_days']}/7")
-        print(f"   ⚠️  RISK: Third parties know when you're home/away\n")
+        print(f"     RISK: Third parties know when you're home/away\n")
         
         # 3. Visitor frequency
         if patterns['delivery_count'] > 0:
             print(f"3. VISITOR TRACKING:")
             print(f"   - Delivery events captured: {patterns['delivery_count']}")
-            print(f"   ⚠️  RISK: Shopping habits revealed to camera company\n")
+            print(f"     RISK: Shopping habits revealed to camera company\n")
         
         # 4. Cloud storage risks
         if self.cloud_storage:
@@ -126,14 +127,14 @@ class SmartCameraSimulator:
             print(f"   - Stored on company servers: YES")
             print(f"   - Accessible by: Camera company, employees, contractors")
             print(f"   - Third-party access: Potentially (police, advertisers)")
-            print(f"   ⚠️  RISK: No control over who views your footage\n")
+            print(f"     RISK: No control over who views your footage\n")
         
         # 5. Metadata leakage
         print(f"5. METADATA PRIVACY LEAKS:")
         print(f"   - WiFi network name exposed: YES")
         print(f"   - Daily activity timestamps: {len(self.metadata_log)} records")
         print(f"   - Pattern-of-life data: COMPLETE")
-        print(f"   ⚠️  RISK: Detailed behavioral profile created\n")
+        print(f"     RISK: Detailed behavioral profile created\n")
         
         # Calculate privacy score
         privacy_score = self._calculate_privacy_score(patterns)
@@ -212,7 +213,7 @@ class SmartCameraSimulator:
         print("PRIVACY MITIGATION STRATEGIES")
         print(f"{'='*60}\n")
         
-        print("✅ RECOMMENDED ACTIONS:\n")
+        print(" RECOMMENDED ACTIONS:\n")
         
         print("1. DISABLE CLOUD STORAGE:")
         print("   - Use local-only storage on SD card or NAS")
@@ -259,7 +260,7 @@ class SmartCameraSimulator:
         with open(filename, 'w') as f:
             json.dump(export_data, f, indent=2)
             
-        print(f"\n✅ Data exported to: {filename}")
+        print(f"\nData exported to: {filename}")
         print(f"   This represents YOUR data under GDPR Article 15 (Right of Access)")
         print(f"   File size: {len(json.dumps(export_data))} bytes\n")
 
@@ -284,18 +285,19 @@ def compare_scenarios():
     # Mitigation strategies
     camera_cloud.generate_mitigation_report()
     
-    # Export demo
-    camera_cloud.export_data()
+    # Export both scenarios for comparison
+    camera_cloud.export_data("camera_data_export_CLOUD.json")
+    camera_local.export_data("camera_data_export_LOCAL.json")
 
 if __name__ == "__main__":
     print("""
-╔════════════════════════════════════════════════════════════╗
-║  SMART HOME CAMERA PRIVACY RISK ANALYZER                   ║
-║  COM6020M: Privacy & Data Protection                       ║
-║                                                             ║
-║  Demonstrates privacy risks from motion detection and      ║
-║  continuous surveillance in smart home cameras             ║
-╚════════════════════════════════════════════════════════════╝
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|  SMART HOME CAMERA PRIVACY RISK ANALYZER                   |
+|  COM6020M: Privacy & Data Protection                       |
+|                                                            |
+|  Demonstrates privacy risks from motion detection and      |
+|  continuous surveillance in smart home cameras             |
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 """)
     
     compare_scenarios()
