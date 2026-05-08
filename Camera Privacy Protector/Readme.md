@@ -220,11 +220,6 @@ python3 camera_privacy_protector.py
 cat camera_privacy_protected_data.json
 ```
 
-## GitHub Links
-
-- **Program:** https://github.com/karanchawla1108/Privacy-Data-Protection-Ring-Camera-/blob/main/Camera%20Privacy%20Protector/camera_privacy_protector.py
-- **Output JSON:** https://github.com/karanchawla1108/Privacy-Data-Protection-Ring-Camera-/blob/main/Camera%20Privacy%20Protector/camera_privacy_protected_data.json
-
 ---
 
 **Assignment:** COM6020M Privacy & Data Protection  
