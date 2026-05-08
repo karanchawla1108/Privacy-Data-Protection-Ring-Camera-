@@ -2,11 +2,11 @@
 
 ## Overview
 
-This program demonstrates privacy-preserving data processing by applying anonymization, encryption, and re-identification risk assessment to smart camera surveillance data. It shows how privacy protections can reduce re-identification risk from 100% to 0% while maintaining data utility.
+Demonstrates privacy-preserving data processing by applying anonymization, encryption, and re-identification risk assessment to Ring camera data. Reduces re-identification risk from 100% to 0% while maintaining data utility.
 
 ## Purpose
 
-Assignment requirement: Demonstrate all four privacy-preserving techniques for COM6020M Privacy & Data Protection coursework:
+Demonstrates all four privacy-preserving techniques for COM6020M Privacy & Data Protection:
 1. Data anonymization
 2. Privacy risk assessment  
 3. Algorithm transparency
@@ -14,411 +14,220 @@ Assignment requirement: Demonstrate all four privacy-preserving techniques for C
 
 ## What It Does
 
-1. Simulates Ring camera data collection (same as Program 1)
-2. Assesses re-identification risk in original data (100/100)
-3. Applies privacy-preserving anonymization techniques
-4. Assesses re-identification risk in anonymized data (0/100)
-5. Encrypts anonymized data for secure storage
-6. Exports before/after comparison demonstrating 100% privacy improvement
+1. Takes same Ring camera data as Program 1
+2. Assesses original re-identification risk: 100/100 (CRITICAL)
+3. Applies anonymization techniques
+4. Assesses anonymized re-identification risk: 0/100 (LOW)
+5. Encrypts anonymized data
+6. Exports before/after comparison (100% privacy improvement)
 
-## Key Features
+## Privacy Techniques Applied
 
 ### 1. Data Anonymization
 
-**Techniques Applied:**
+**PII Removal:**
+- Names, emails, exact locations: DELETED
 
-**PII Removal**
-- User names: DELETED
-- Email addresses: DELETED  
-- Exact camera locations: DELETED
-- Prevents direct identification
+**SHA-256 Hashing (irreversible):**
+- WiFi: "HomeNetwork_2.4GHz" → "c58598cbae637f81..."
+- IP: "192.168.1.100" → "2a39f1eedcd9f986..."
 
-**SHA-256 Hashing** (irreversible)
-- WiFi network names: "HomeNetwork_5G" → "c58598cbae637f81..."
-- IP addresses: "192.168.1.100" → "2a39f1eedcd9f986..."
-- Cannot recover original values
+**Pseudonymization:**
+- Device: "RING-A1B2C3D4E5" → "DEVICE-602E797C"
 
-**Pseudonymization**
-- Device serials: "RING-A1B2C3D4E5" → "DEVICE-602E797C"
-- Hash-based pseudonym generation
-- Maintains analytical utility
-
-**Temporal Generalization**
-- Exact timestamps: "2026-04-24T08:15:23" → "2026-04-24 08:00:00"
-- Hour-level precision only
-- Prevents precise routine tracking
+**Temporal Generalization:**
+- "2026-04-24T08:15:23" → "2026-04-24 08:00:00" (hour-level only)
 
 ### 2. Privacy Risk Assessment
 
-**Re-identification Risk Scoring:**
-
-**Original Data:**
-- Direct identifiers present (name, email, location)
-- Network identifiers in plaintext (WiFi, IP)
-- Exact timestamps reveal routines
-- **Risk Score: 100/100 (CRITICAL)**
-
-**Anonymized Data:**
-- All PII removed
-- Network data hashed (irreversible)
-- Timestamps generalized
-- **Risk Score: 0/100 (LOW)**
-
-**Privacy Improvement: 100% re-identification prevention**
+**Original Data:** 100/100 risk (name, email, location exposed)  
+**Anonymized Data:** 0/100 risk (all PII removed/hashed)  
+**Result:** 100% privacy improvement
 
 ### 3. Algorithm Transparency
 
-Every anonymization step is explained:
-
-**Step 1: PII Removal**
-```
-Original: name="John Smith", email="john@email.com"
-Result: Fields deleted
-Explanation: Direct identifiers enable instant identification
-```
-
-**Step 2: Network Hashing**
-```
-Original: wifi="HomeNetwork_5G"
-Result: wifi_hash="c58598cbae637f81..."
-Algorithm: SHA-256 one-way hash
-Explanation: Cannot reverse to get original network name
-```
-
-**Step 3: Pseudonymization**
-```
-Original: device="RING-12345"
-Result: device="DEVICE-602E797C"
-Algorithm: Hash first 8 chars of SHA-256
-Explanation: Maintains uniqueness without revealing original
-```
-
-**Step 4: Generalization**
-```
-Original: "2026-04-24T08:15:23"
-Result: "2026-04-24 08:00:00"
-Method: Truncate to hour-level
-Explanation: Prevents exact routine tracking
-```
+Each step explained:
+1. Delete name, email, location (prevents direct identification)
+2. Hash WiFi/IP with SHA-256 (irreversible protection)
+3. Pseudonymize device IDs (maintains utility without exposure)
+4. Generalize timestamps (prevents exact routine tracking)
 
 ### 4. Data Encryption
 
-**XOR Cipher with SHA-256 Key Derivation**
-
-```
-Password: "privacy_protection_key_2026"
-Key Generation: SHA-256(password) → 256-bit key
-Encryption: XOR cipher
-Result: Encrypted hex string
-```
-
-Demonstrates encryption/decryption capabilities for secure data storage.
+XOR cipher with SHA-256 key derivation for secure storage demonstration.
 
 ## Requirements
 
-- Python 3.6 or higher
-- No external packages required (uses standard library only)
-
-## Installation
-
-```bash
-# No installation needed
-# Uses Python standard library only
-```
+- Python 3.6+
+- No external packages (standard library only)
 
 ## Usage
 
 ```bash
-# Run the privacy protector
 python3 camera_privacy_protector.py
 
-# Expected runtime: 5-10 seconds
-# Output: Terminal analysis + camera_privacy_protected_data.json
+# Runtime: 5-10 seconds
+# Output: Terminal + camera_privacy_protected_data.json
 ```
 
 ## Output
 
-### Terminal Output
+### JSON File Structure
 
-Displays complete before/after analysis:
-1. Simulation of camera data collection
-2. Re-identification risk assessment (original data)
-3. Anonymization process with step-by-step explanations
-4. Re-identification risk assessment (anonymized data)
-5. Encryption demonstration
-6. Privacy improvement summary
+**camera_privacy_protected_data.json** contains:
 
-### JSON Export
-
-File: `camera_privacy_protected_data.json`
-
-Contains two sections:
-
-**Original Data Section:**
 ```json
 {
   "original_data": {
-    "motion_events": [...],  // Contains PII
-    "privacy_implications": "High re-identification risk"
-  }
-}
-```
-
-**Anonymized Data Section:**
-```json
-{
+    "motion_events": [
+      {
+        "user_name": "John Smith",
+        "user_email": "john@email.com",
+        "wifi_network": "HomeNetwork_2.4GHz"
+      }
+    ],
+    "privacy_implications": "Contains PII - high re-identification risk"
+  },
+  
   "anonymized_data": {
-    "motion_events": [...],  // PII removed/hashed
-    "techniques_applied": [...],
-    "privacy_implications": "Low re-identification risk"
+    "motion_events": [
+      {
+        "wifi_hash": "c58598cbae637f81",
+        "ip_hash": "2a39f1eedcd9f986",
+        "device_pseudonym": "DEVICE-602E797C"
+      }
+    ],
+    "techniques_applied": [
+      "PII removal",
+      "SHA-256 hashing",
+      "Pseudonymization",
+      "Temporal generalization",
+      "XOR encryption"
+    ],
+    "privacy_implications": "PII removed - low re-identification risk"
   }
 }
 ```
 
-Enables direct before/after comparison.
+## Why Each Technique Matters
 
-## Privacy Techniques Explained
-
-### Why Each Technique Matters
-
-**1. PII Removal**
-- **Problem:** Names and emails enable instant identification
-- **Solution:** Complete deletion of direct identifiers
-- **Result:** Cannot identify individual from remaining data
-
-**2. Hashing**
-- **Problem:** WiFi names and IPs enable device tracking
-- **Solution:** SHA-256 one-way hash (irreversible)
-- **Result:** Original values cannot be recovered
-
-**3. Pseudonymization**  
-- **Problem:** Device serials link events to specific hardware
-- **Solution:** Replace with consistent pseudonyms
-- **Result:** Maintains analytical utility without revealing device
-
-**4. Generalization**
-- **Problem:** Exact timestamps expose precise daily routines
-- **Solution:** Reduce precision to hour-level
-- **Result:** Prevents tracking exact arrival/departure times
-
-**5. Encryption**
-- **Problem:** Anonymized data still needs secure storage
-- **Solution:** XOR encryption with key derivation
-- **Result:** Additional security layer for data at rest
+| Technique | Problem | Solution | Result |
+|-----------|---------|----------|--------|
+| **PII Removal** | Names/emails identify instantly | Delete all direct identifiers | Cannot identify individual |
+| **Hashing** | WiFi/IP enable tracking | SHA-256 one-way hash | Cannot recover originals |
+| **Pseudonymization** | Device IDs link to hardware | Replace with pseudonyms | Maintains utility without exposure |
+| **Generalization** | Exact times show routine | Hour-level precision only | Prevents precise tracking |
+| **Encryption** | Storage needs security | XOR cipher | Secure data at rest |
 
 ## GDPR Compliance
 
-### Articles Demonstrated
-
 **Article 4(5) - Pseudonymisation**
-```
-Definition: Processing personal data such that it can no longer 
-be attributed to a specific data subject without additional 
-information.
-
-Implementation:
-- SHA-256 hashing of network identifiers
-- Hash-based pseudonym generation for devices
-- Separation of identifiers from analytical data
-```
+- SHA-256 hashing (WiFi, IP)
+- Device pseudonym generation
 
 **Article 5(1)(c) - Data Minimisation**
-```
-Principle: Personal data shall be adequate, relevant and limited 
-to what is necessary.
+- PII deletion (names, emails, locations)
+- Only necessary fields retained
 
-Implementation:
-- Deletion of names, emails, exact locations
-- Removal of unnecessary identifying fields
-- Retention only of data needed for analysis
-```
-
-**Article 25 - Data Protection by Design**
-```
-Requirement: Implement appropriate technical measures to ensure 
-data protection principles.
-
-Implementation:
+**Article 25 - Privacy by Design**
 - Built-in anonymization pipeline
-- Default privacy-protective settings
-- Proactive rather than reactive privacy
-```
+- Proactive privacy protection
 
 **Article 32 - Security of Processing**
-```
-Requirement: Implement appropriate technical measures to ensure 
-security of processing.
+- Encryption for data at rest
+- Hashing for integrity
 
-Implementation:
-- Encryption of data at rest
-- Hashing for data integrity
-- Access control through key management
-```
-
-## Example Output
+## Example Terminal Output
 
 ```
-============================================================
-RE-IDENTIFICATION RISK ASSESSMENT - ORIGINAL DATA
-============================================================
+RE-IDENTIFICATION RISK - ORIGINAL DATA
+Score: 100/100 (CRITICAL)
+Issues: Name, email, location, WiFi, IP all exposed
 
-CRITICAL PII EXPOSURES IDENTIFIED:
-
-1. DIRECT IDENTIFIERS:
-   - User name: John Smith
-   - User email: john.smith@email.com
-   - RISK: Instant identification possible
-
-2. NETWORK IDENTIFIERS:
-   - WiFi network: HomeNetwork_2.4GHz
-   - IP address: 192.168.1.100
-   - RISK: Device fingerprinting enables tracking
-
-============================================================
-RE-IDENTIFICATION RISK SCORE: 100/100
-RISK LEVEL: CRITICAL - Individual easily identifiable
-============================================================
-
-
-============================================================
-APPLYING DATA ANONYMIZATION TECHNIQUES
-============================================================
-
-ALGORITHM TRANSPARENCY - Anonymization Steps:
-1. PII Removal: Delete name, email, exact location
-2. Hashing: SHA-256 one-way hash for WiFi, IP
-3. Pseudonymization: Replace device ID with pseudonym
-4. Generalization: Reduce timestamp to hour-level
-5. Data Minimization: Keep only necessary fields
-
+APPLYING ANONYMIZATION
 Processing 17 events...
-  ✓ Processed 5/17 events
-  ✓ Processed 10/17 events
-  ✓ Processed 15/17 events
-  ✓ Processed 17/17 events
+✓ PII removed
+✓ Networks hashed
+✓ Devices pseudonymized
+✓ Timestamps generalized
 
-============================================================
-ANONYMIZATION COMPLETE: 17 records processed
-============================================================
+RE-IDENTIFICATION RISK - ANONYMIZED DATA
+Score: 0/100 (LOW)
+Protection: All PII removed/hashed
 
-
-============================================================
-RE-IDENTIFICATION RISK ASSESSMENT - ANONYMIZED DATA
-============================================================
-
-PRIVACY PROTECTIONS IN ANONYMIZED DATA:
-
-1. DIRECT IDENTIFIERS:
-   - User name: REMOVED ✓
-   - User email: REMOVED ✓
-   - Direct identification prevented (-80 risk)
-
-2. NETWORK IDENTIFIERS:
-   - WiFi: c58598cbae637f81... (HASHED) ✓
-   - IP: 2a39f1eedcd9f986... (HASHED) ✓
-   - Irreversible protection applied (-15 risk)
-
-============================================================
-RE-IDENTIFICATION RISK SCORE: 0/100
-RISK LEVEL: LOW - Individual cannot be identified
-============================================================
-
-
-============================================================
-PRIVACY IMPROVEMENT SUMMARY
-============================================================
-Original re-identification risk:    100/100
-Anonymized re-identification risk:  0/100
-Risk reduction:                     100 points
-Privacy improvement:                100.0%
-============================================================
+PRIVACY IMPROVEMENT: 100%
 ```
 
-## Use Cases
+## Applicability to Cloud Storage
 
-### For Students
-- Demonstrates all 4 required privacy techniques
-- Shows GDPR compliance implementation
-- Provides evidence for coursework reports
-- Illustrates privacy-preserving data processing
+**Ring's cloud storage should follow these techniques before upload to eliminate third-party access risks identified in Program 1.** If Ring anonymized data before cloud storage:
+- Employee viewing would only see anonymized records
+- Police requests would access de-identified data only
+- Re-identification risk: 0/100 vs current 100/100
+- Cloud storage penalty eliminated
 
-### For Developers
-- Reference implementation for anonymization pipeline
-- GDPR Article 4(5) pseudonymization example
-- Practical encryption demonstration
-- Before/after risk assessment methodology
+## Comparison to Program 1
 
-### For Privacy Officers
-- Template for privacy impact assessments
-- Data minimization implementation guide
-- Re-identification risk quantification
-- GDPR compliance documentation
+| Aspect | Program 1 | Program 2 |
+|--------|-----------|-----------|
+| **Purpose** | Identify problems | Solve problems |
+| **Cloud Score** | 15/100 | N/A (applies to any storage) |
+| **Re-ID Risk** | Shows 100/100 | Reduces to 0/100 |
+| **Output** | 2 JSON files (cloud vs local) | 1 JSON (before/after anonymization) |
+| **Focus** | Storage location matters | Anonymization protects anywhere |
 
-## Technical Implementation
+**Together:** Complete privacy analysis (problem + solution)
 
+## Key Data Transformation
 
-### Key Functions
+**Before:**
+```json
+{
+  "user_name": "John Smith",
+  "user_email": "john.smith@email.com",
+  "camera_location": "123 Main Street",
+  "wifi_network": "HomeNetwork_2.4GHz",
+  "ip_address": "192.168.1.100",
+  "timestamp": "2026-04-24T08:30:45.123456"
+}
+```
 
-```python
-apply_anonymization()
-- Removes PII fields
-- Applies hashing to network identifiers
-- Generates pseudonyms for devices
-- Generalizes temporal data
-
-assess_re_identification_risk()
-- Quantifies privacy exposure
-- Compares before/after states
-- Provides risk scoring
-
-apply_encryption()
-- Generates encryption key
-- Encrypts anonymized data
-- Demonstrates secure storage
+**After:**
+```json
+{
+  "wifi_hash": "c58598cbae637f81",
+  "ip_hash": "2a39f1eedcd9f986",
+  "device_pseudonym": "DEVICE-602E797C",
+  "timestamp_hour": "2026-04-24 08:00:00",
+  "anonymization_applied": true
+}
 ```
 
 ## Limitations
 
-- Simulated data (not connected to real cameras)
-- XOR cipher is demonstration only (production should use AES-256)
-- Single-user dataset (does not test k-anonymity across users)
-- Does not implement differential privacy (out of scope)
+- Simulated data (not real cameras)
+- XOR cipher demonstration (production needs AES-256)
+- Single dataset (no k-anonymity testing)
+- No differential privacy (out of scope)
 
-## Future Enhancements
+## Quick Start
 
-Potential improvements:
-- AES-256 encryption instead of XOR
-- K-anonymity implementation (k=5)
-- L-diversity for sensitive attributes
-- Differential privacy for aggregate statistics
-- Federated learning integration
+```bash
+# Run
+python3 camera_privacy_protector.py
 
-## Comparison to Program 1
+# View output
+cat camera_privacy_protected_data.json
+```
 
-**Program 1 (Risk Analyzer):**
-- Identifies privacy problems
-- Quantifies risks (15/100 for cloud)
-- Demonstrates violations
+## GitHub Links
 
-**Program 2 (Privacy Protector):**
-- Solves privacy problems
-- Applies protections (0/100 risk achieved)
-- Demonstrates solutions
+- **Program:** https://github.com/karanchawla1108/Privacy-Data-Protection-Ring-Camera-/blob/main/Camera%20Privacy%20Protector/camera_privacy_protector.py
+- **Output JSON:** https://github.com/karanchawla1108/Privacy-Data-Protection-Ring-Camera-/blob/main/Camera%20Privacy%20Protector/camera_privacy_protected_data.json
 
-**Together:** Problem identification + Solution implementation = Complete privacy analysis
+---
 
-## References
-
-**Privacy-Enhancing Technologies:**
-- SHA-256 Hashing (NIST FIPS 180-4)
-- Pseudonymization (GDPR Article 4(5))
-- K-anonymity (Sweeney, 2002)
-- Differential Privacy (Dwork, 2006)
-
-**Regulatory Frameworks:**
-- GDPR Regulation (EU) 2016/679
-- ISO/IEC 27701:2019 Privacy Information Management
-- NIST Privacy Framework v1.0
-
-
-
+**Assignment:** COM6020M Privacy & Data Protection  
+**Student:** Karan Chawla  
+**Institution:** St John York University
+**Date:** May 2026
