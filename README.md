@@ -192,4 +192,4 @@ python3 camera_privacy_protector.py
 **Karan Chawla**  
 GitHub: [@karanchawla1108](https://github.com/karanchawla1108)  
 Module: COM6020M Privacy & Data Protection  
-St John York Universities | May 2026
+St John York University | May 2026
